@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.z-999{
+  z-index: 999;
+}
+.text-left{
+  text-align: left !important;
+}
+
+.radius-50{
+  border-radius: 50%;
+}
+.color-strong{
+  color:var(--najjaca-roza) !important;
+}
+main{
+  padding-top: calc(1.5rem + 56px);
+    margin-bottom: 1.5rem;
+}
+.ae-picker-label{
+  height: 35px !important;
+}

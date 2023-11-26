@@ -1,0 +1,12 @@
+.color-blue{
+    color:var(--bs-blue) !important;
+}
+.bg-blue{
+    background-color:var(--bs-blue) !important;
+}
+.color-white{
+    color:white !important;
+}
+.bg-color{
+    background-color: white !important;
+}

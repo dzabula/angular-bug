@@ -1,0 +1,131 @@
+<main>
+  
+  <!-- Container START -->
+  <div class="container">
+    <div class="row g-4">
+      <!-- Main content START -->
+      <div class="col-lg-8">
+        <div class="bg-mode p-4">
+          <h1 class="h4 mb-4">Најновији блогови</h1>
+          <div *ngIf="filteredBlogs.length > 0; else noBlogs">
+            <div *ngFor="let blog of filteredBlogs" class="mt-5 card bg-transparent border-0">
+              <div class="row g-3">
+                <div class="col-4">
+                  <!-- Blog image -->
+                  <img class="rounded" src="assets/images/03.jpg" alt="">
+                </div>
+                <div class="col-8">
+                  <!-- Blog caption -->
+                  <a href="#" class="badge bg-danger bg-opacity-10 text-danger mb-2 fw-bold">{{ blog.category }}</a>
+                  <h5>
+                    <a routerLink="/blog-details/{{ blog.blogId }}" class="btn-link stretched-link text-reset fw-bold">
+                      {{ blog.title }}
+                    </a>
+                  </h5>
+                  <div class="d-none d-sm-inline-block">
+                    <p class="mb-2">{{ blog.description | slice:0:150 }}...</p>
+                    <!-- Blog date -->
+                    <a class="small text-secondary" href="#!">
+                      креирано од : {{ blog.author  }}
+                    </a>
+                    <div class="mt-5">
+                      <a routerLink="/blog-details/{{ blog.blogId }}" class="btn btn-primary btn-sm">Погледај детаље</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Blog item END -->
+            <hr class="my-4">
+          </div>
+          <ng-template #noBlogs>
+            <p>Nema zapisa.</p>
+          </ng-template>
+        
+        </div>
+      </div>
+      <!-- Main content END -->
+
+      <!-- Right sidebar START -->
+      
+        <div class="col-lg-4">
+          <form>
+          <div class="row g-4">
+            <!-- Card News START -->
+            <!-- Card Categories START -->
+            <!-- Card Categories START -->
+            <div class="col-sm-6 col-lg-12">
+              <div class="card">
+                <!-- Card header START -->
+                <div class="card-header pb-0 border-0">
+                  <h5 class="card-title mb-0">Категорије</h5>
+                </div>
+                <!-- Card header END -->
+                <!-- Card body START -->
+                <div class="card-body">
+                  <!-- Category item 1 -->
+                  <div *ngFor="let cat of categories" class="mb-3">
+                    <input type="checkbox"
+                     id="category{{cat.id}}"
+                     name="category{{cat.name}}" 
+                     [(ngModel)]="cat.checked">
+                    <label for="category{{cat.id}}" class="ms-2">{{ cat.name }}</label>
+                  </div>
+  
+                </div>
+                <!-- Card body END -->
+              </div>
+            </div>
+            <!-- Card Categories END -->
+
+            <!-- Card Categories END -->
+
+            <!-- Card News END -->
+  
+            <!-- Card News START -->
+            <div class="col-sm-6 col-lg-12">
+              <div class="card">
+                <!-- Card header START -->
+                <div class="card-header pb-0 border-0">
+                  <h5 class="card-title mb-0">Претражи</h5>
+                </div>
+                <!-- Card header END -->
+                <!-- Card body START -->
+                <div class="card-body">
+                  <!-- Search input START -->
+                  <div class="mb-3">
+                    <label for="searchInput" class="form-label visually-hidden">Search by title</label>
+                    <input 
+                      type="text"
+                      id="searchInput"
+                      class="form-control"
+                      placeholder="Претрага по наслову"
+                      name="keyword"
+                      [(ngModel)]="keyword" >
+                  </div>
+                  <!-- Search input END -->
+                  <!-- Tag list START -->
+                  <ul class="list-inline mb-0 d-flex flex-wrap gap-2">
+                    <li class="list-inline-item m-0">
+                      <button class="btn btn-outline-primary btn-sm" (click)="filterResults()">Претражи</button>
+                    </li>
+                    <!-- Add other tag items as needed -->
+                  </ul>
+                  <!-- Tag list END -->
+                </div>
+                <!-- Card body END -->
+              </div>
+            </div>
+            <!-- Card News END -->
+            
+
+          </div>
+          </form>
+          <!-- Right sidebar END -->
+        </div>
+       <!-- Row END -->
+    </div>
+  </div>
+  <!-- Container END -->
+
+</main>

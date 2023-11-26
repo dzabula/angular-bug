@@ -1,0 +1,60 @@
+<main>
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-3">
+                <app-side></app-side>
+            </div>
+
+            <div class="col-md-8 col-lg-6 vstack gap-4">
+                <!-- Create a page START -->
+                <div class="card">
+                <!-- Title START -->
+                <div class="card-header border-0 pb-0">
+                    <h1 class="h4 card-title mb-0">Create a blog</h1>
+                </div>
+                <!-- Title END -->
+                <!-- Create a page form START -->
+                <div class="card-body">
+                    <form class="row g-3" (ngSubmit)="create()">
+                    <!-- Page information -->
+                    <div class="col-12">
+                        <label class="form-label">Naslov*</label>
+                        <input type="text" [(ngModel)]="title" name="title"  class="form-control" placeholder="Naslov...">
+                        <!-- <small>Korisnicko ime mora biti jedinstveno!</small> -->
+                    </div>
+                    <!-- Display name -->
+                    <div class="col-12">
+                        <label class="form-label">Opis*</label>
+                        <angular-editor matInput class="h-200 w-100" name="description" [config]="editorConfig"  required></angular-editor>
+                    </div>
+                    
+                    <mat-form-field>
+                        <mat-label>Izaberi kateogirju</mat-label>
+                        <mat-select [(ngModel)]="selectedCategory" name="selectedCategory">
+                          <mat-option *ngFor="let option of categories" [value]="option.id">
+                            {{ option.name }}
+                          </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    
+                    <div class="col-12">
+                        <label class="form-label">Slika (Opciono)</label>
+                        <input type="file" class="form-control" placeholder="Otpremite sliku..." (change)="handleFileInput($event)">
+                        <!-- <small>Korisnicko ime mora biti jedinstveno!</small> -->
+                    </div>
+
+                    <hr>
+                    <div class="col-12 text-end">
+                        <button type="submit"name="sub" class="btn btn-primary mb-0">Kreiraj</button>
+                    </div>
+                    </form>
+                </div>
+                <!-- Create a page form END -->
+                </div>
+                <!-- Create a page END -->
+            </div>
+
+        </div>
+    </div>
+</main>

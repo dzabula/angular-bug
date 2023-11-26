@@ -1,0 +1,69 @@
+<main>
+  
+    <!-- Container START -->
+    <div class="container">
+        <div class="col-lg-12">
+        <div class="bg-mode p-4">
+            <h1 class="h4 mb-4">Ћирилични фонтови</h1>
+            <div>
+            <div class="row g-3">
+                <!-- Blog input START -->
+                <div class="col-md-12 mb-4">
+                <form>
+                    <!-- Search input START -->
+                    <div class="mb-3">
+                    <label for="searchInput" class="form-label visually-hidden">Search by title</label>
+                    <input 
+                        type="text"
+                        id="searchInput"
+                        class="form-control"
+                        placeholder="Search by title"
+                        name="keyword">
+                    </div>
+                    <!-- Search input END -->
+                    <button class="btn btn-outline-primary btn-sm" >Pretraži</button>
+                </form>
+                </div>
+                <!-- Blog input END -->
+                <div *ngFor="let x of loadedFonts" class="col-md-4 mb-4">
+                    <div class="card bg-light border-0 shadow-sm">
+                        <div class="row g-3 p-3">
+                            <div class="col-12">
+                                <!-- Naziv fonta -->
+                                <h5 class="mb-3"
+                                [ngStyle]="{'font-family': x.family, 'font-display': 'swap'}">
+                                    <a  class="btn-link text-reset fw-bold">
+                                        {{ x.family }}
+                                    </a>
+                                </h5>
+
+                                <p contenteditable="true"
+                                class="small text-secondary content-editable"
+                                [ngStyle]="{'font-family': x.family, 'font-display': 'swap'}">
+                                Испробај овде...
+                                </p>
+
+
+                                <div class="d-flex justify-content-between mt-3">
+                                    <a href="https://fonts.google.com/specimen/{{x.family}}" target="_blank" class="btn btn-primary btn-sm">Погледај детаље</a>
+                                    <a href="{{x.files.regular}}" class="btn btn-primary btn-sm">Преузми</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Blog item END -->
+            <hr class="my-4">
+            </div>
+
+            
+            <div *ngIf="fonts.length > loadedFonts.length">
+                <button class="btn btn-outline-primary btn-sm" (click)="loadMoreFonts()">Load More</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- Container END -->
+  
+</main>

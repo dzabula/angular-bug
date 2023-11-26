@@ -1,0 +1,73 @@
+<main>
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-3">
+                <app-side></app-side>
+            </div>
+
+            <div class="col-md-8 col-lg-6 vstack gap-4">
+                <!-- Create a page START -->
+                <div class="card">
+                <!-- Title START -->
+                <div class="card-header border-0 pb-0">
+                    <h1 class="h4 card-title mb-0">Kreiranje Moderatora</h1>
+                </div>
+                <!-- Title END -->
+                <!-- Create a page form START -->
+                <div class="card-body">
+                    <form class="row g-3" (ngSubmit)="create()">
+                    <!-- Page information -->
+                    <div class="col-12">
+                        <label class="form-label">Korisnicko ime</label>
+                        <input type="text" [(ngModel)]="username" name="username"  class="form-control" placeholder="Korisnicko ime...">
+                        <small>Korisnicko ime mora biti jedinstveno!</small>
+                    </div>
+                    <!-- Display name -->
+                    <div class="col-12 col-sm-6 col-lg-6">
+                        <label class="form-label">Ime*</label>
+                        <input type="text" [(ngModel)]="firstName" name="firstName"  class="form-control" placeholder="Ime...">
+                    </div>
+                    <!-- Email -->
+                    <div class="col-12 col-sm-6 col-lg-6">
+                        <label class="form-label">Prezime*</label>
+                        <input type="text" [(ngModel)]="lastName" name="lastName"  class="form-control" placeholder="Prezime...">
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-6">
+                        <label class="form-label">Broji Telefona*</label>
+                        <input type="text" [(ngModel)]="phone" name="phone"  class="form-control" placeholder="Broji Telefona...">
+                    </div>
+                    <!-- Email -->
+                    <div class="col-12 col-sm-6 col-lg-6">
+                        <label class="form-label">Email*</label>
+                        <input type="text" [(ngModel)]="email" name="email"  class="form-control" placeholder="Email...">
+                    </div>
+                    
+                    <div class="col-12">
+                        <label class="form-label">Lozinka*</label>
+                        <input type="password" [(ngModel)]="password" name="password"  class="form-control" placeholder="Lozinka...">
+                        <small>Min. 8 karaktera.</small>
+                    </div>
+
+                    <div class="col-12">
+                        <label class="form-label">Potvrdi Lozinku*</label>
+                        <input type="password" [(ngModel)]="rePassword" name="rePassword"  class="form-control" placeholder="Potvrdi Lozinku....">
+                        <small></small>
+                    </div>
+                    <!-- Website URL -->
+                    
+                    <!-- Divider -->
+                    <hr>
+                    <div class="col-12 text-end">
+                        <button type="submit" class="btn btn-primary mb-0">Kreiraj</button>
+                    </div>
+                    </form>
+                </div>
+                <!-- Create a page form END -->
+                </div>
+                <!-- Create a page END -->
+            </div>
+
+        </div>
+    </div>
+</main>

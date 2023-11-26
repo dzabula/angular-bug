@@ -1,0 +1,25 @@
+<div class="container pt-5 pb-5">
+    <table class="table table-bordered table-striped mt-5">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">Ид</th>
+          <th scope="col">Наслов</th>
+          <th scope="col">Аутор</th>
+          <th scope="col">Одобри</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let x of notApprovePosts">
+          <th scope="row">{{ x.id}}</th>
+          <td>{{ x.title }}</td>
+          <td>{{ x.author }}</td>
+          <td><button class="btn btn-warning btn-sm" (click)="approve(x.id)">Одобри</button></td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+
+  
+  
+  
